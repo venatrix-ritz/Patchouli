@@ -21,11 +21,11 @@ public class BookCrashHandler implements Supplier<String> {
 
 	public static void appendToCrashReport(SystemReport report) {
 		var mc = Minecraft.getInstance();
-		if (mc == null || !(mc.screen() instanceof GuiBook)) {
+		if (mc == null || !(mc.gui.screen() instanceof GuiBook)) {
 			return;
 		}
 		try {
-			report.setDetail(LABEL, new BookCrashHandler());
+			report.setDetail(LABEL, new BookCrashHandler().get());
 		} catch (Exception e) {
 			PatchouliAPI.LOGGER.fatal("Failed to extend crash report system info", e);
 		}
@@ -33,7 +33,7 @@ public class BookCrashHandler implements Supplier<String> {
 
 	@Override
 	public String get() {
-		Screen screen = Minecraft.getInstance().screen();
+		Screen screen = Minecraft.getInstance().gui.screen();
 		if (!(screen instanceof GuiBook gui)) {
 			return "n/a";
 		}

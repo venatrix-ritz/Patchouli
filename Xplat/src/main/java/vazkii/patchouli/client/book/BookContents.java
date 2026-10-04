@@ -91,7 +91,7 @@ public class BookContents extends AbstractReadStateHolder {
 	public void openLexiconGui(GuiBook gui, boolean push) {
 		if (gui.canBeOpened()) {
 			Minecraft mc = Minecraft.getInstance();
-			if (push && mc.screen() instanceof GuiBook guiBook && gui != mc.screen()) {
+			if (push && mc.gui.screen() instanceof GuiBook guiBook && gui != mc.gui.screen()) {
 				guiStack.push(guiBook);
 			}
 

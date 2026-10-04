@@ -246,7 +246,7 @@ public class Book {
 		if (useBlockyFont) {
 			return Style.EMPTY;
 		} else {
-			return Style.EMPTY.withFont(new FontDescription.Resource(Minecraft.UNIFORM_FONT));
+			return Style.EMPTY.withFont(new FontDescription.Resource(net.minecraft.resources.Identifier.withDefaultNamespace("uniform")));
 		}
 	}
 
