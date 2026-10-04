@@ -21,7 +21,7 @@ public class BookCrashHandler implements Supplier<String> {
 
 	public static void appendToCrashReport(SystemReport report) {
 		var mc = Minecraft.getInstance();
-		if (mc == null || !(mc.screen instanceof GuiBook)) {
+		if (mc == null || !(mc.screen() instanceof GuiBook)) {
 			return;
 		}
 		try {
@@ -33,7 +33,7 @@ public class BookCrashHandler implements Supplier<String> {
 
 	@Override
 	public String get() {
-		Screen screen = Minecraft.getInstance().screen;
+		Screen screen = Minecraft.getInstance().screen();
 		if (!(screen instanceof GuiBook gui)) {
 			return "n/a";
 		}
